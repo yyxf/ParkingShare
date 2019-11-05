@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<classPathEntry location="E:/maven/apache-maven-3.6.0/mysql-connector-java-8.0.13.jar"/>
+  
+  <context id="mysql" targetRuntime="MyBatis3Simple">
+  	<commentGenerator>
+		<property name="suppressAllComments" value="true"/>  	
+  	</commentGenerator>
+  
+    <jdbcConnection connectionURL="jdbc:mysql://127.0.0.1:3306/parkingshare" driverClass="com.mysql.jdbc.Driver" password="root" userId="root" />
+    <javaModelGenerator targetPackage="com.zch.pojo" targetProject="ParkingShare/src/main/java" />
+    <sqlMapGenerator targetPackage="com.zch.mapper" targetProject="ParkingShare/src/main/java" />
+    <javaClientGenerator targetPackage="com.zch.mapper" targetProject="ParkingShare/src/main/java" type="XMLMAPPER" />
+    
+       <table schema="parkingshare" tableName="manager">
+      <columnOverride column="useActualColumnNames" property="false" />
+    </table>
+
+      <!--
+      <table schema="oneproject" tableName="tborder">
+      <columnOverride column="useActualColumnNames" property="false" />
+    </table>
+
+    <table schema="oneproject" tableName="tbproduct">
+      <columnOverride column="useActualColumnNames" property="false" />
+    </table>
+
+    <table schema="oneproject" tableName="tbcatalog">
+      <columnOverride column="useActualColumnNames" property="false" />
+    </table>
+    -->
+     
+    
+  </context>
+</generatorConfiguration>

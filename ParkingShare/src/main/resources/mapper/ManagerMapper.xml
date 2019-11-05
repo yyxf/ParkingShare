@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zch.mapper.ManagerMapper">
+  <resultMap id="BaseResultMap" type="com.zch.pojo.Manager">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="pwd" jdbcType="VARCHAR" property="pwd" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="mark" jdbcType="VARCHAR" property="mark" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from manager
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zch.pojo.Manager">
+    insert into manager (id, name, pwd, 
+      phone, area, img, mark
+      )
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, #{mark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.zch.pojo.Manager">
+    update manager
+    set name = #{name,jdbcType=VARCHAR},
+      pwd = #{pwd,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR},
+      mark = #{mark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, name, pwd, phone, area, img, mark
+    from manager
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, pwd, phone, area, img, mark
+    from manager
+  </select>
+  
+  <select id="selectByNamePwd" parameterType="com.zch.pojo.Manager" resultMap="BaseResultMap">
+    select id, name, pwd, phone, area, img, mark
+    from manager
+    where name = #{name,jdbcType=VARCHAR} and pwd = #{pwd,jdbcType=VARCHAR}
+  </select>
+  
+  
+  
+</mapper>
